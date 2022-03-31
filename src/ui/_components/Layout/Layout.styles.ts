@@ -10,7 +10,7 @@ const Layout = styled('div')`
   font-weight: 500;
   height: 90vh;
   max-height: 860px;
-  max-width: 1250px;
+  max-width: 1440px;
   overflow: hidden;
   width: 90vw;
   -webkit-backdrop-filter: blur(20px);
