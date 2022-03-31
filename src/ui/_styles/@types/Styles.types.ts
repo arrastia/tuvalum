@@ -13,5 +13,11 @@ declare module 'styled-components' {
       text: string;
       transparent: string;
     };
+    breakpoints: {
+      large_desktop: string;
+      phone: string;
+      small_desktop: string;
+      tablet: string;
+    };
   }
 }
