@@ -2,15 +2,17 @@ import styled from 'styled-components';
 
 import { Column } from 'ui/_styles/components/Column';
 
-const Sidebar = styled(Column)`
+const Sidebar = styled(Column)<{ isVisible: boolean }>`
   border-left: 1px solid;
   border-left-color: ${({ theme }) => theme.colors.divider};
-  flex-basis: 200px;
+  flex-basis: 300px;
   flex-shrink: 0;
   overflow: auto;
   padding: 1.5rem;
   box-shadow: 0 0 0 1px 'rgba(0, 0, 0, 0.1)';
   position: relative;
+  transition: right 300ms ease-in-out;
+  right: ${({ isVisible }) => (isVisible ? '0' : '-300px')};
 
   /* @media screen and (max-width: 945px) {
     display: none;
