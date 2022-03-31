@@ -5,20 +5,20 @@ import { heart } from 'assets/images';
 import { unlike, pulse, nestedFloat, floatPrimary, floatSecondary } from 'ui/_styles/animations/heart';
 
 const LikeButton = styled('button')`
-  align-items: center;
-  background-color: ${({ theme: { colors } }) => colors.transparent};
+  /* align-items: center; */
+  background-color: ${({ theme: { colors } }) => colors.glass};
   border: none;
   color: ${({ theme: { colors } }) => colors.text};
   cursor: pointer;
-  display: flex;
+  /* display: flex; */
   filter: grayscale(1);
-  font-size: 12px;
+  /* font-size: 12px;
   font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0em;
-  line-height: 14px;
-  padding: 0.5rem 0;
-  text-align: left;
+  font-weight: 400; */
+  /* letter-spacing: 0em; */
+  /* line-height: 14px; */
+  padding: 0.5rem;
+  /* text-align: left; */
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   user-select: none;
 
@@ -36,10 +36,10 @@ const LikeIcon = styled('div')`
   animation: ${unlike} 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
   background: url(${heart}) no-repeat center;
   background-size: 100%;
-  display: inline-block;
-  font-size: 1.5rem;
-  height: 16px;
-  margin-right: 0.25em;
+  /* display: inline-block; */
+  /* font-size: 1.5rem; */
+  height: 1rem;
+  /* margin-right: 0.25em; */
   position: relative;
   width: 18px;
 

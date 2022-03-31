@@ -7,7 +7,6 @@ const ButtonWrapper = styled(Button)`
 
   &.primary {
     background: ${({ theme: { colors } }) => colors.primary};
-    color: ${({ theme: { colors } }) => colors.text};
   }
   &.secondary {
     background-color: ${({ theme: { colors } }) => colors.secondary};
@@ -36,7 +35,6 @@ const Icon = styled('span')`
 const Text = styled('span')`
   font-size: large;
   line-height: normal;
-  font-size: 12px;
 `;
 
 export const Styles = { ButtonWrapper, Icon, Text };

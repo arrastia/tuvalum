@@ -27,7 +27,6 @@ export const LikeButton = ({ id }: LikeButtonProps) => {
           <div className="heart-animation-1" />
           <div className="heart-animation-2" />
         </Styles.LikeIcon>
-        Favorite
       </Styles.LikeButton>
     </Styles.LikeButtonWrapper>
   );
