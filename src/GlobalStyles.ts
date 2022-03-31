@@ -9,12 +9,12 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
+      align-items: center;
       background-color: ${({ theme }) => theme.colors.background};
       background-image: url(${bg});
-      background-size: cover;
-      background-repeat: no-repeat;
       background-position: center;
-      align-items: center;
+      background-repeat: no-repeat;
+      background-size: cover;
       display: flex;
       flex-direction: column;
       font-family: 'Roboto', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -22,7 +22,9 @@ export const GlobalStyles = createGlobalStyle`
       justify-content: center;
       margin: 0;
       margin: 0;
+      transition: background-color 300ms ease-in-out;
       width: 100%;
+      color: ${({ theme: { colors } }) => colors.text};
       -moz-osx-font-smoothing: grayscale;
       -webkit-font-smoothing: antialiased;
     }
@@ -34,11 +36,6 @@ export const GlobalStyles = createGlobalStyle`
     h1 {
       display: block;
       font-size: 2em;
-      font-weight: bold;
-      margin-block-end: 0.67em;
-      margin-block-start: 0.67em;
-      margin-inline-end: 0px;
-      margin-inline-start: 0px;
     }
 
     h2 {

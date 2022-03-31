@@ -1,3 +1,5 @@
+import { breakpoints } from './breakpoints';
+
 export const light = {
   colors: {
     accent: '#dcfe54',
@@ -5,11 +7,12 @@ export const light = {
     error: '#ff0000',
     primary: '#01de8f',
     secondary: '#fafafa',
-    text: 'black',
+    text: '#545d68',
     transparent: 'transparent',
     divider: 'rgb(255 255 255 / 35%)',
     glass: 'rgb(255 255 255 / 31%)'
-  }
+  },
+  breakpoints
 };
 
 // background: 'linear-gradient(#2396bf, #0d5b77 40%, #004961 3%, #004961)',

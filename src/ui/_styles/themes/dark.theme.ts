@@ -1,3 +1,5 @@
+import { breakpoints } from './breakpoints';
+
 export const dark = {
   colors: {
     accent: '#dcfe54',
@@ -5,11 +7,12 @@ export const dark = {
     error: '#ff0000',
     primary: '#01de8f',
     secondary: '#fafafa',
-    text: 'black',
+    text: '#cdd9e5',
     transparent: 'transparent',
     divider: 'rgba(113 119 144 / 25%)',
     glass: 'rgba(16 18 27 / 40%)'
-  }
+  },
+  breakpoints
 };
 
 // background: '#282c34',
