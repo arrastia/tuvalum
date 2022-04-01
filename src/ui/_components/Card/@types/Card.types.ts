@@ -5,4 +5,5 @@ export interface CardProps {
   price: string;
   title: string;
   year: string;
+  quantity?: number;
 }
