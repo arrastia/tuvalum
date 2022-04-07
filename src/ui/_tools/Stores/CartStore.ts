@@ -1,5 +1,5 @@
 import { IProduct } from 'core/entities/Product';
-import { atom, selectorFamily } from 'recoil';
+import { atom, atomFamily, selectorFamily } from 'recoil';
 
 import { productsState } from './ProductStore';
 
@@ -19,19 +19,13 @@ export const cartProductState = selectorFamily({
     (id: number) =>
     async ({ get }) => {
       const product = get(productsState).find(p => p.id === id);
-      return { ...product, quantity: 1 };
-    },
-  set:
-    (id: number) =>
-    ({ get, set }, iProduct: any) => {
-      // const product = get(productsState).find(p => p.id === id);
+      const quantity = get(productQuantityState(id));
 
-      // if (!product) {
-      //   return null;
-      // }
-
-      // set(cartProductState(id), prevState => ({ ...prevState, quantity: prevState.quantity + 1 }));
-      set(cartProductState(id), iProduct);
-      // return { ...product, quantity: (product.quantity || 1) + 1 };
+      return { ...product, quantity };
     }
+});
+
+export const productQuantityState = atomFamily({
+  key: 'productQuantityState',
+  default: 1
 });
