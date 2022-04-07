@@ -1,11 +1,24 @@
-import { bicycle } from 'assets/images';
-import { SyntheticEvent } from 'react';
-import { Button } from '../Button';
-import { LikeButton } from '../LikeButton';
-import type { CardProps } from './@types/Card.types';
 import { Styles } from './Card.styles';
 
-export const Card = ({ id, image, onButtonClick, price, title, year, quantity }: CardProps) => {
+import { bicycle } from 'assets/images';
+
+import { Button } from 'ui/_components/Button';
+import { LikeButton } from 'ui/_components/LikeButton';
+
+import type { SyntheticEvent } from 'react';
+import type { CardProps } from './@types/Card.types';
+import { useRecoilCallback } from 'recoil';
+import { cartProductsIdsState } from 'ui/_tools/Stores/CartStore';
+
+export const Card = ({ id, image, price, quantity, title, year }: CardProps) => {
+  const onAddToCart = useRecoilCallback(
+    ({ set }) =>
+      async (id: number) => {
+        set(cartProductsIdsState, prevState => [...prevState, id]);
+      },
+    []
+  );
+
   const loadDefaultImage = (event: SyntheticEvent<HTMLImageElement, Event>) => {
     event.currentTarget.onerror = null;
     event.currentTarget.src = bicycle;
@@ -22,7 +35,7 @@ export const Card = ({ id, image, onButtonClick, price, title, year, quantity }:
       {title}
       {year}
       {price}
-      <Button label="Añadir al carrito" onClick={() => onButtonClick(id)} />
+      <Button label="Añadir al carrito" onClick={() => onAddToCart(id)} />
     </Styles.Card>
   );
 };

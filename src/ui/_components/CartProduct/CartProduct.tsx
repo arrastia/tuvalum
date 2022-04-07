@@ -1,26 +1,21 @@
-import { bicycle } from 'assets/images';
-import { SyntheticEvent } from 'react';
-import { IoAdd, IoRemove } from 'react-icons/io5';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
-import { cartProductState } from 'ui/_tools/Stores/CartStore';
-import { Button } from '../Button';
+import { IoAdd, IoRemove } from 'react-icons/io5';
+
 import { Styles } from './CartProduct.styles';
 
+import { bicycle } from 'assets/images';
+
+import { Button } from 'ui/_components/Button';
+
+import { cartProductState, productQuantityState } from 'ui/_tools/Stores/CartStore';
+
+import type { SyntheticEvent } from 'react';
+
 export const CartProduct = ({ id }: { id: number }) => {
-  const cartProduct = useRecoilValue(cartProductState(id));
+  const { image, title } = useRecoilValue(cartProductState(id));
 
-  // const increase = () => {
-  //   setCartProduct(prev => ({ ...prev, quantity: (prev.quantity || 1) + 1 }));
-  // };
-
-  // const decrease = () => {
-  //   setCartProduct(prev => ({ ...prev, quantity: (prev.quantity || 1) - 1 }));
-  // };
-
-  // if (cartProduct === null) {
-  //   return null;
-  // }
+  const [quantity, setQuantity] = useRecoilState(productQuantityState(id));
 
   const loadDefaultImage = (event: SyntheticEvent<HTMLImageElement, Event>) => {
     event.currentTarget.onerror = null;
@@ -29,10 +24,10 @@ export const CartProduct = ({ id }: { id: number }) => {
 
   return (
     <Styles.Product>
-      <Styles.ProductImage src={cartProduct?.image} alt="" onError={loadDefaultImage} />
+      <Styles.ProductImage alt="" onError={loadDefaultImage} src={image} />
       <Styles.Content>
-        {cartProduct?.title}
-        {cartProduct?.quantity}
+        {title}
+        <input onChange={event => setQuantity(parseInt(event.target.value))} type="number" value={quantity} />
 
         <div style={{ display: 'flex', gap: '1rem' }}>
           <Button icon={<IoAdd />} />

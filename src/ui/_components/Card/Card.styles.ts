@@ -7,7 +7,7 @@ const Card = styled(Column)`
   border-radius: 5px;
   cursor: pointer;
   gap: 0.5rem;
-  max-width: 20rem;
+  max-width: 15rem;
   padding: 0.75rem;
   transition: all 100ms ease-in;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
@@ -22,9 +22,9 @@ const Card = styled(Column)`
 `;
 
 const CardImage = styled('img')`
-  height: 250px;
+  height: 187px;
   object-fit: cover;
-  width: 300px;
+  width: 225px;
 `;
 
 const FavoriteButton = styled('div')`
