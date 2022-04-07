@@ -11,12 +11,15 @@ const Sidebar = styled(Column)<{ isVisible: boolean }>`
   padding: 1.5rem;
   box-shadow: 0 0 0 1px 'rgba(0, 0, 0, 0.1)';
   position: relative;
-  transition: right 300ms ease-in-out;
-  right: ${({ isVisible }) => (isVisible ? '0' : '-300px')};
 
-  /* @media screen and (max-width: 945px) {
-    display: none;
-  } */
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    background: ${({ theme }) => theme.colors.background};
+    height: 100%;
+    position: absolute;
+    right: ${({ isVisible }) => (isVisible ? '0' : '-350px')};
+    transition: right 300ms ease-in-out;
+    z-index: 2;
+  }
 `;
 
 const SidebarButtons = styled('div')`
